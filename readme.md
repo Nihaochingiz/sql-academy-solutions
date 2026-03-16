@@ -279,3 +279,32 @@ FROM Rooms
 GROUP BY home_type
 HAVING COUNT(*) >= 2;
 ```
+
+https://sql-academy.org/ru/guide/inner-join
+
+1. INNER JOIN
+Объедините таблицы Class и Student_in_class с помощью внутреннего соединения по полям Class.id и Student_in_class.class. Выведите название класса (поле Class.name) и идентификатор ученика (поле Student_in_class.student).
+
+```sql
+SELECT Class.name, Student_in_class.student
+FROM Class
+INNER JOIN Student_in_class
+ON Class.id = Student_in_class.class;
+```
+
+2. Многотабличный INNER JOIN
+Дополните запрос из предыдущего задания, добавив ещё одно внутреннее соединение с таблицей Student. Объедините по полям Student_in_class.student и Student.id и вместо идентификатора ученика выведите его имя (поле first_name).
+
+```sql
+SELECT Class.name, Student.first_name
+FROM Class
+INNER JOIN Student_in_class
+ON Class.id = Student_in_class.class
+INNER JOIN Student
+ON Student_in_class.student = Student.id
+```
+
+
+4. INNER JOIN с группировкой
+Выведите идентификатор (поле room_id) и среднюю оценку комнаты (поле rating, для вывода используйте псевдоним avg_score), составленную на основании отзывов из таблицы Reviews.
+Данная таблица связана с Reservations (таблица, где вы можете взять идентификатор комнаты) по полям reservation_id и Reservations.id.
