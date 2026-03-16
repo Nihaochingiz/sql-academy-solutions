@@ -264,3 +264,18 @@ COUNT(room_id) AS count from Reservations
 GROUP BY room_id
 ORDER BY count DESC, avg_price DESC;
 ```
+
+
+https://sql-academy.org/ru/guide/operator-having
+
+1. Фильтрация групп
+
+Выведите типы комнат (поле home_type) и разницу между самым дорогим и самым дешевым представителем данного типа. В итоговую выборку включите только те типы жилья, количество которых в таблице Rooms больше или равно 2.
+Для вывода разницы стоимости используйте псевдоним difference.
+
+```sql
+SELECT home_type, MAX(price) - MIN(price) AS difference
+FROM Rooms
+GROUP BY home_type
+HAVING COUNT(*) >= 2;
+```
