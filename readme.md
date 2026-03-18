@@ -304,7 +304,36 @@ INNER JOIN Student
 ON Student_in_class.student = Student.id
 ```
 
+# Подзапрос с одной строкой с одним столбцом
+https://sql-academy.org/ru/guide/subquery-with-one-column-one-row
 
-4. INNER JOIN с группировкой
-Выведите идентификатор (поле room_id) и среднюю оценку комнаты (поле rating, для вывода используйте псевдоним avg_score), составленную на основании отзывов из таблицы Reviews.
-Данная таблица связана с Reservations (таблица, где вы можете взять идентификатор комнаты) по полям reservation_id и Reservations.id.
+1. Поиск владельца
+Выведите всю информацию о пользователе из таблицы Users, кто является владельцем самого дорогого жилья (таблица Rooms).
+
+```sql
+SELECT *
+FROM Users
+WHERE id = (
+    SELECT owner_id
+    FROM Rooms
+    WHERE price = (SELECT MAX(price) FROM Rooms)
+    LIMIT 1
+);
+```
+
+# Подзапросы с несколькими строками и одним столбцом
+
+https://sql-academy.org/ru/guide/subquery-with-one-column-several-row
+
+1. Столбцовые подзапросы с выражением IN
+
+Выведите названия товаров из таблицы Goods (поле good_name), которые ещё ни разу не покупались ни одним из членов семьи (таблица Payments).
+
+```sql
+SELECT good_name
+FROM Goods
+WHERE Goods.good_id NOT IN (SELECT good FROM Payments);
+```
+
+
+
