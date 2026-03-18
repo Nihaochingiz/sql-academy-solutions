@@ -280,6 +280,7 @@ GROUP BY home_type
 HAVING COUNT(*) >= 2;
 ```
 ### Модуль 3
+### Модуль 3
 
 https://sql-academy.org/ru/guide/inner-join
 
