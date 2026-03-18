@@ -279,6 +279,7 @@ FROM Rooms
 GROUP BY home_type
 HAVING COUNT(*) >= 2;
 ```
+### Модуль 3
 
 https://sql-academy.org/ru/guide/inner-join
 
@@ -308,3 +309,44 @@ ON Student_in_class.student = Student.id
 4. INNER JOIN с группировкой
 Выведите идентификатор (поле room_id) и среднюю оценку комнаты (поле rating, для вывода используйте псевдоним avg_score), составленную на основании отзывов из таблицы Reviews.
 Данная таблица связана с Reservations (таблица, где вы можете взять идентификатор комнаты) по полям reservation_id и Reservations.id.
+
+
+
+https://sql-academy.org/ru/guide/outer-join
+
+1. Внешнее левое соединение
+Выведите имя first_name и фамилию last_name каждого учителя из таблицы Teacher, а также количество занятий, в которых он был назначен преподавателем. Если преподаватель не был назначен ни на одно занятие, то выведите 0.
+Для вывода количества занятий используйте псевдоним amount_classes.
+
+
+SELECT first_name, last_name, COUNT(Schedule.id) AS amount_classes
+FROM Teacher
+LEFT JOIN Schedule
+ON Schedule.teacher = Teacher.id
+GROUP BY Teacher.first_name, Teacher.last_name;
+
+
+https://sql-academy.org/ru/guide/limit
+
+1. Ограничение записей с начала таблицы
+
+Отсортируйте список компаний (таблица Company) по их названию в алфавитном порядке и выведите первые две записи.
+
+```sql
+SELECT *
+FROM Company
+ORDER BY name ASC
+LIMIT 2;
+```
+
+
+2. Ограничение количества записей со смещением
+
+Выведите начало (поле start_pair) и окончание (поле end_pair) второго и третьего занятия из таблицы Timepair.
+
+```sql
+SELECT start_pair,end_pair
+FROM Timepair
+ORDER BY id
+LIMIT 2 OFFSET 1;
+```
