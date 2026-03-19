@@ -505,3 +505,13 @@ FROM Goods
     INNER JOIN GoodTypes ON Goods.type = GoodTypes.good_type_id
 WHERE GoodTypes.good_type_name = 'delicacies';
 ```
+# Числовой тип данных в SQL
+
+https://sql-academy.org/ru/guide/work-with-number-data-type
+
+1. Округление до чисел, кратных 10-ти
+
+```sql
+SELECT ROUND(price / 10) * 10  AS rounded_price
+FROM Rooms;
+```
