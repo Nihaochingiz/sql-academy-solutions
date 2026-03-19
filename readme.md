@@ -432,3 +432,12 @@ SELECT id, has_tv,
     IF (has_tv, 'YES', 'NO') AS has_tv
     FROM Rooms
 ```
+
+2. Замена null на строку
+Из таблицы Teacher выведите имена (поле first_name), отчества (поле middle_name) и фамилии (поле last_name) учителей. Если отчество у учителя отсутствует, выведите в поле middle_name значение «Empty».
+
+```sql
+SELECT first_name, middle_name, last_name,
+    IFNULL(middle_name, 'Empty') AS middle_name
+    FROM TEACHER;
+```
