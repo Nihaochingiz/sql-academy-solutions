@@ -477,3 +477,31 @@ WHERE member_name = "Wednesday Addams";
 UPDATE Rooms
 SET price = price + 10;
 ```
+
+https://sql-academy.org/ru/guide/operator-delete
+
+Удаление данных, оператор DELETE
+
+1. Удаление всех записей
+Удалите все записи из таблицы Payments, используя оператор DELETE.
+
+```sql
+DELETE FROM Payments;
+```
+
+2. Удаление c условием
+Удалить запись из таблицы Goods, у которой поле good_name равно "milk"
+```sql
+DELETE FROM Goods
+WHERE good_name = 'milk';
+```
+
+3. Удаление c JOIN
+Измените запрос так, чтобы удалить товары (Goods), имеющие тип деликатесов (delicacies).
+
+```sql
+DELETE Goods
+FROM Goods
+    INNER JOIN GoodTypes ON Goods.type = GoodTypes.good_type_id
+WHERE GoodTypes.good_type_name = 'delicacies';
+```
