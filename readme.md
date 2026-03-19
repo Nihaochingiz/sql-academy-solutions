@@ -400,3 +400,20 @@ UNION
 SELECT first_name, middle_name, last_name
 FROM Teacher;
 ```
+Условная логика, оператор CASE
+
+https://sql-academy.org/ru/guide/case-expression#uslovnaya-logika-operator-case
+
+1. Категоризация отзывов
+
+Из таблицы Reviews выведите идентификаторы отзывов (поле id) и их категорию: для рейтинга 4-5 проставьте категорию «positive», для 3 проставьте «neutral», а для 1-2 - «negative».
+
+```sql
+SELECT id, 
+CASE 
+  WHEN rating IN (5,4) THEN 'positive'
+  WHEN rating = 3 THEN 'neutral'
+  WHEN rating IN (1,2) THEN 'negative'
+END AS rating
+FROM Reviews;
+```
