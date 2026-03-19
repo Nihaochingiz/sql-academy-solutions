@@ -417,3 +417,18 @@ CASE
 END AS rating
 FROM Reviews;
 ```
+
+
+https://sql-academy.org/ru/guide/if-function
+
+Условная функция IF
+
+1. Условный вывод строки
+
+Из таблицы Rooms выведите идентификаторы сдаваемых жилых помещений (поле id) и наличие телевизора в помещении: если телевизор присутствует — выведите «YES», иначе «NO».
+
+```sql
+SELECT id, has_tv,
+    IF (has_tv, 'YES', 'NO') AS has_tv
+    FROM Rooms
+```
