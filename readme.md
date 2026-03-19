@@ -370,3 +370,33 @@ WHERE (has_tv, has_internet, has_kitchen, has_air_con) IN (
     WHERE id = 11
 );
 ```
+
+http://sql-academy.org/ru/guide/correlated-subqueries
+
+1. Получение самого дорогого купленного товара
+
+```sql
+SELECT 
+    FamilyMembers.member_name,
+    (
+        SELECT MAX(Payments.unit_price)
+        FROM Payments
+        WHERE Payments.family_member = FamilyMembers.member_id
+    ) AS good_price
+FROM FamilyMembers;
+```
+
+
+https://sql-academy.org/ru/guide/combining-queries
+
+1. Объединение учеников и учителей
+
+Выведите полные имена (поля first_name, middle_name и last_name) всех студентов и преподавателей.
+
+```sql
+SELECT first_name, middle_name, last_name
+FROM Student
+UNION
+SELECT first_name, middle_name, last_name
+FROM Teacher;
+```
