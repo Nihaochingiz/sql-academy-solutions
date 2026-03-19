@@ -455,4 +455,25 @@ SELECT MAX(good_id) + 1, 'Table', (SELECT good_type_id FROM GoodTypes WHERE good
 FROM Goods;
 ```
 
+https://sql-academy.org/ru/guide/operator-update
 
+Обновление данных, оператор UPDATE
+
+1. Обновление имени у пользователя
+
+Измените имя у "Wednesday Addams" на новое "Tuesday Addams".
+
+```sql
+UPDATE FamilyMembers
+SET member_name = "Tuesday Addams"
+WHERE member_name = "Wednesday Addams";
+```
+
+2. Обновление стоимости у всего жилья
+
+Обновите стоимость всех комнат в таблице (Rooms), добавив к текущей 10 единиц
+
+```sql
+UPDATE Rooms
+SET price = price + 10;
+```
