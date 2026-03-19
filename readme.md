@@ -441,3 +441,18 @@ SELECT first_name, middle_name, last_name,
     IFNULL(middle_name, 'Empty') AS middle_name
     FROM TEACHER;
 ```
+
+
+https://sql-academy.org/ru/guide/operator-insert
+
+Добавление данных, оператор INSERT
+
+```sql
+INSERT INTO Goods(good_id, good_name, type)
+
+SELECT MAX(good_id) + 1, 'Table', (SELECT good_type_id FROM GoodTypes WHERE good_type_name = 'equipment')
+
+FROM Goods;
+```
+
+
