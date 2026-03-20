@@ -546,10 +546,10 @@ https://sql-academy.org/ru/guide/partitions
 1. Минимальная стоимость жилья в текущей категории
 
 ```sql
-SELECT 
-    home_type, 
+SELECT
+    home_type,
     price,
     MIN(price) OVER(PARTITION BY home_type) AS min_price_by_type
-FROM 
-    rooms;
+FROM
+    Rooms;
 ```
