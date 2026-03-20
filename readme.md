@@ -515,3 +515,25 @@ https://sql-academy.org/ru/guide/work-with-number-data-type
 SELECT ROUND(price / 10) * 10  AS rounded_price
 FROM Rooms;
 ```
+
+https://sql-academy.org/ru/guide/work-with-datetime-data-type
+
+Дата и время в SQL
+
+Извлеките значение часа (от 0 до 23) из времени '14:30:45' с помощью соответствующей функции. Используйте псевдоним hour_value для вывода значения.
+
+```sql
+SELECT HOUR('14:30:45') AS hour_value
+```
+
+2. Определение возраста
+Выведите имена (поле member_name) и возраст для каждого человека из таблицы FamilyMembers.
+Для вывода возраста используйте псевдоним age.
+
+```sql
+SELECT 
+    member_name,
+    TIMESTAMPDIFF(YEAR, birthday, NOW()) AS age
+FROM 
+    FamilyMembers;
+```
