@@ -537,3 +537,19 @@ SELECT
 FROM 
     FamilyMembers;
 ```
+
+
+https://sql-academy.org/ru/guide/partitions
+
+Партиции в оконных функциях
+
+1. Минимальная стоимость жилья в текущей категории
+
+```sql
+SELECT 
+    home_type, 
+    price,
+    MIN(price) OVER(PARTITION BY home_type) AS min_price_by_type
+FROM 
+    rooms;
+```
