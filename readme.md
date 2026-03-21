@@ -1,10 +1,8 @@
 # Решение задач курса
 
-
 ### Модуль 2
 
 https://sql-academy.org/ru/guide/basic-syntax-sql-query
-
 
 1. Вывод строки
 
@@ -13,6 +11,7 @@ https://sql-academy.org/ru/guide/basic-syntax-sql-query
 ```sql
 SELECT "Hello world"
 ```
+
 2. SELECT по всем столбцам
 
 Выведите все столбцы из таблицы Payments.
@@ -30,26 +29,25 @@ SELECT member_id, member_name, status FROM FamilyMembers
 ```
 
 4. Вывод с псевдонимами
-Выведите поле name из таблицы Passenger. При выводе данного поля используйте псевдоним "passengerName"
+   Выведите поле name из таблицы Passenger. При выводе данного поля используйте псевдоним "passengerName"
 
 ```sql
 SELECT name AS passengerName FROM Passenger
 ```
 
-
 https://sql-academy.org/ru/guide/using-functions
 
 1. Вывод строки в нижнем регистре
-Выведите текст "Hello world" в нижнем регистре с помощью соответствующей функции.
-Для вывода текста используйте псевдоним lower_string.
+   Выведите текст "Hello world" в нижнем регистре с помощью соответствующей функции.
+   Для вывода текста используйте псевдоним lower_string.
 
 ```sql
 SELECT LOWER("Hello world") AS lower_string;
 ```
 
 2. Вывод года из даты
-Выведите полное имя члена семьи и его год рождения, используя функцию YEAR.
-Для вывода года рождения используйте псевдоним year_of_birth.
+   Выведите полное имя члена семьи и его год рождения, используя функцию YEAR.
+   Для вывода года рождения используйте псевдоним year_of_birth.
 
 ```sql
 SELECT member_name, YEAR(birthday) AS year_of_birth
@@ -57,8 +55,8 @@ FROM FamilyMembers;
 ```
 
 3. Вычисление длины фамилии
-Выведите полное имя члена семьи и длину его фамилии.
-Для вывода длины фамилии используйте псевдоним lastname_length.
+   Выведите полное имя члена семьи и длину его фамилии.
+   Для вывода длины фамилии используйте псевдоним lastname_length.
 
 ```sql
 SELECT member_name,
@@ -69,14 +67,14 @@ FROM FamilyMembers;
 https://sql-academy.org/ru/guide/distinct-operator
 
 1. Вывод уникальных имён
-Выведите только уникальные имена first_name студентов из таблицы Student.
+   Выведите только уникальные имена first_name студентов из таблицы Student.
 
 ```sql
 SELECT DISTINCT first_name FROM Student;
 ```
 
 2. Вывод уникальных пар колонок
-Выведите только уникальные пары значений идентификатор учителя teacher и идентификатор предмета subject из таблицы Schedule. Пара 2, 3 отличается от 3, 2
+   Выведите только уникальные пары значений идентификатор учителя teacher и идентификатор предмета subject из таблицы Schedule. Пара 2, 3 отличается от 3, 2
 
 ```sql
 SELECT DISTINCT teacher, subject FROM Schedule;
@@ -84,26 +82,26 @@ SELECT DISTINCT teacher, subject FROM Schedule;
 
 https://sql-academy.org/ru/guide/conditional-where-operator
 
-
 1. Простая фильтрация по числам
-Выведите идентификаторы товаров (поле good) из таблицы Payments, стоимость которых больше 2000 единиц. Стоимость товара хранится в поле unit_price.
+   Выведите идентификаторы товаров (поле good) из таблицы Payments, стоимость которых больше 2000 единиц. Стоимость товара хранится в поле unit_price.
 
 ```sql
-SELECT good 
-FROM Payments 
+SELECT good
+FROM Payments
 WHERE unit_price > 2000;
 ```
 
 2. Простая фильтрация по строкам
-Выведите имена (поле member_name) членов семьи из таблицы FamilyMembers, чей статус (поле status) равен "father".
+   Выведите имена (поле member_name) членов семьи из таблицы FamilyMembers, чей статус (поле status) равен "father".
 
 ```sql
 SELECT member_name
 FROM FamilyMembers
 WHERE status = 'father';
 ```
+
 3. Логическое ИЛИ
-Выведите имя (поле member_name) и дату рождения (поле birthday) членов семьи из таблицы FamilyMembers, чей статус (поле status) равен "father" или "mother".
+   Выведите имя (поле member_name) и дату рождения (поле birthday) членов семьи из таблицы FamilyMembers, чей статус (поле status) равен "father" или "mother".
 
 ```sql
 SELECT member_name, birthday
@@ -129,13 +127,13 @@ https://sql-academy.org/ru/guide/is-null-between-in-operators
 Выведите имена first_name и фамилии last_name студентов из таблицы Student, у кого отсутствует отчество middle_name
 
 ```sql
-SELECT first_name,last_name 
-FROM Student 
+SELECT first_name,last_name
+FROM Student
 WHERE middle_name IS NULL;
 ```
 
 2. Поиск значений в указанном промежутке
-Выведите резервации комнат (поля room_id, start_date, end_date) из таблицы Reservations, у которых итоговая стоимость аренды (поле total) находится в промежутке от 500 до 1200 включительно.
+   Выведите резервации комнат (поля room_id, start_date, end_date) из таблицы Reservations, у которых итоговая стоимость аренды (поле total) находится в промежутке от 500 до 1200 включительно.
 
 ```sql
 SELECT room_id, start_date, end_date
@@ -154,20 +152,17 @@ WHERE YEAR(birthday) IN (2000, 2002, 2004);
 
 https://sql-academy.org/ru/guide/operator-like
 
-
 1. Поиск по строковому шаблону
 
 Найдите всех членов семьи с фамилией "Quincey" и выведите поле member_name
 
 ```sql
-SELECT member_name 
+SELECT member_name
 FROM FamilyMembers
 WHERE member_name LIKE '%Quincey%';
 ```
 
 https://sql-academy.org/ru/guide/sorting
-
-
 
 1. Сортировка по убыванию
 
@@ -175,7 +170,7 @@ https://sql-academy.org/ru/guide/sorting
 Для вывода суммы используйте псевдоним sum.
 
 ```sql
-SELECT good, 
+SELECT good,
        amount * unit_price AS 'sum'
 FROM Payments
 ORDER BY sum DESC;
@@ -186,7 +181,7 @@ ORDER BY sum DESC;
 Выведите все данные членов семьи с фамилией Quincey из таблицы FamilyMembers и отсортируйте их по возрастанию сначала по столбцу status, а затем по member_name.
 
 ```sql
-SELECT * 
+SELECT *
 FROM FamilyMembers
 WHERE member_name LIKE '%Quincey%'
 ORDER BY status, member_name ASC;
@@ -199,7 +194,7 @@ https://sql-academy.org/ru/guide/groupping
 Сгруппируйте данные из таблицы Rooms по полю home_type и выведите тип жилья и количество объектов каждого типа. Используйте псевдоним count_rooms для количества объектов.
 
 ```sql
-SELECT home_type, COUNT(id) AS count_rooms 
+SELECT home_type, COUNT(id) AS count_rooms
 FROM Rooms
 GROUP BY home_type;
 ```
@@ -223,8 +218,8 @@ https://sql-academy.org/ru/guide/aggregate-functions
 Для вывода количества учеников используйте псевдоним count.
 
 ```sql
-SELECT class, count(id) AS count 
-FROM Student_in_class 
+SELECT class, count(id) AS count
+FROM Student_in_class
 GROUP BY class
 ORDER BY count DESC;
 ```
@@ -259,12 +254,11 @@ GROUP BY plane;
 Выведите идентификатор комнаты (поле room_id), среднюю стоимость за один день аренды (поле price, для вывода используйте псевдоним avg_price), а также количество резерваций этой комнаты (используйте псевдоним count). Полученный результат отсортируйте в порядке убывания сначала по количеству резерваций, а потом по средней стоимости.
 
 ```sql
-SELECT room_id, AVG(price) AS avg_price, 
+SELECT room_id, AVG(price) AS avg_price,
 COUNT(room_id) AS count from Reservations
 GROUP BY room_id
 ORDER BY count DESC, avg_price DESC;
 ```
-
 
 https://sql-academy.org/ru/guide/operator-having
 
@@ -279,13 +273,15 @@ FROM Rooms
 GROUP BY home_type
 HAVING COUNT(*) >= 2;
 ```
+
 ### Модуль 3
+
 ### Модуль 3
 
 https://sql-academy.org/ru/guide/inner-join
 
 1. INNER JOIN
-Объедините таблицы Class и Student_in_class с помощью внутреннего соединения по полям Class.id и Student_in_class.class. Выведите название класса (поле Class.name) и идентификатор ученика (поле Student_in_class.student).
+   Объедините таблицы Class и Student_in_class с помощью внутреннего соединения по полям Class.id и Student_in_class.class. Выведите название класса (поле Class.name) и идентификатор ученика (поле Student_in_class.student).
 
 ```sql
 SELECT Class.name, Student_in_class.student
@@ -295,7 +291,7 @@ ON Class.id = Student_in_class.class;
 ```
 
 2. Многотабличный INNER JOIN
-Дополните запрос из предыдущего задания, добавив ещё одно внутреннее соединение с таблицей Student. Объедините по полям Student_in_class.student и Student.id и вместо идентификатора ученика выведите его имя (поле first_name).
+   Дополните запрос из предыдущего задания, добавив ещё одно внутреннее соединение с таблицей Student. Объедините по полям Student_in_class.student и Student.id и вместо идентификатора ученика выведите его имя (поле first_name).
 
 ```sql
 SELECT Class.name, Student.first_name
@@ -306,26 +302,21 @@ INNER JOIN Student
 ON Student_in_class.student = Student.id
 ```
 
-
 4. INNER JOIN с группировкой
-Выведите идентификатор (поле room_id) и среднюю оценку комнаты (поле rating, для вывода используйте псевдоним avg_score), составленную на основании отзывов из таблицы Reviews.
-Данная таблица связана с Reservations (таблица, где вы можете взять идентификатор комнаты) по полям reservation_id и Reservations.id.
-
-
+   Выведите идентификатор (поле room_id) и среднюю оценку комнаты (поле rating, для вывода используйте псевдоним avg_score), составленную на основании отзывов из таблицы Reviews.
+   Данная таблица связана с Reservations (таблица, где вы можете взять идентификатор комнаты) по полям reservation_id и Reservations.id.
 
 https://sql-academy.org/ru/guide/outer-join
 
 1. Внешнее левое соединение
-Выведите имя first_name и фамилию last_name каждого учителя из таблицы Teacher, а также количество занятий, в которых он был назначен преподавателем. Если преподаватель не был назначен ни на одно занятие, то выведите 0.
-Для вывода количества занятий используйте псевдоним amount_classes.
-
+   Выведите имя first_name и фамилию last_name каждого учителя из таблицы Teacher, а также количество занятий, в которых он был назначен преподавателем. Если преподаватель не был назначен ни на одно занятие, то выведите 0.
+   Для вывода количества занятий используйте псевдоним amount_classes.
 
 SELECT first_name, last_name, COUNT(Schedule.id) AS amount_classes
 FROM Teacher
 LEFT JOIN Schedule
 ON Schedule.teacher = Teacher.id
 GROUP BY Teacher.first_name, Teacher.last_name;
-
 
 https://sql-academy.org/ru/guide/limit
 
@@ -340,7 +331,6 @@ ORDER BY name ASC
 LIMIT 2;
 ```
 
-
 2. Ограничение количества записей со смещением
 
 Выведите начало (поле start_pair) и окончание (поле end_pair) второго и третьего занятия из таблицы Timepair.
@@ -351,7 +341,6 @@ FROM Timepair
 ORDER BY id
 LIMIT 2 OFFSET 1;
 ```
-
 
 # Многостолбцовые запросы
 
@@ -365,8 +354,8 @@ https://sql-academy.org/ru/guide/subquery-with-several-column#mnogostolbcovye-po
 SELECT *
 FROM Rooms
 WHERE (has_tv, has_internet, has_kitchen, has_air_con) IN (
-    SELECT has_tv, has_internet, has_kitchen, has_air_con 
-    FROM Rooms 
+    SELECT has_tv, has_internet, has_kitchen, has_air_con
+    FROM Rooms
     WHERE id = 11
 );
 ```
@@ -376,7 +365,7 @@ http://sql-academy.org/ru/guide/correlated-subqueries
 1. Получение самого дорогого купленного товара
 
 ```sql
-SELECT 
+SELECT
     FamilyMembers.member_name,
     (
         SELECT MAX(Payments.unit_price)
@@ -385,7 +374,6 @@ SELECT
     ) AS good_price
 FROM FamilyMembers;
 ```
-
 
 https://sql-academy.org/ru/guide/combining-queries
 
@@ -400,6 +388,7 @@ UNION
 SELECT first_name, middle_name, last_name
 FROM Teacher;
 ```
+
 Условная логика, оператор CASE
 
 https://sql-academy.org/ru/guide/case-expression#uslovnaya-logika-operator-case
@@ -409,15 +398,14 @@ https://sql-academy.org/ru/guide/case-expression#uslovnaya-logika-operator-case
 Из таблицы Reviews выведите идентификаторы отзывов (поле id) и их категорию: для рейтинга 4-5 проставьте категорию «positive», для 3 проставьте «neutral», а для 1-2 - «negative».
 
 ```sql
-SELECT id, 
-CASE 
+SELECT id,
+CASE
   WHEN rating IN (5,4) THEN 'positive'
   WHEN rating = 3 THEN 'neutral'
   WHEN rating IN (1,2) THEN 'negative'
 END AS rating
 FROM Reviews;
 ```
-
 
 https://sql-academy.org/ru/guide/if-function
 
@@ -434,14 +422,13 @@ SELECT id, has_tv,
 ```
 
 2. Замена null на строку
-Из таблицы Teacher выведите имена (поле first_name), отчества (поле middle_name) и фамилии (поле last_name) учителей. Если отчество у учителя отсутствует, выведите в поле middle_name значение «Empty».
+   Из таблицы Teacher выведите имена (поле first_name), отчества (поле middle_name) и фамилии (поле last_name) учителей. Если отчество у учителя отсутствует, выведите в поле middle_name значение «Empty».
 
 ```sql
 SELECT first_name, middle_name, last_name,
     IFNULL(middle_name, 'Empty') AS middle_name
     FROM TEACHER;
 ```
-
 
 https://sql-academy.org/ru/guide/operator-insert
 
@@ -483,21 +470,22 @@ https://sql-academy.org/ru/guide/operator-delete
 Удаление данных, оператор DELETE
 
 1. Удаление всех записей
-Удалите все записи из таблицы Payments, используя оператор DELETE.
+   Удалите все записи из таблицы Payments, используя оператор DELETE.
 
 ```sql
 DELETE FROM Payments;
 ```
 
 2. Удаление c условием
-Удалить запись из таблицы Goods, у которой поле good_name равно "milk"
+   Удалить запись из таблицы Goods, у которой поле good_name равно "milk"
+
 ```sql
 DELETE FROM Goods
 WHERE good_name = 'milk';
 ```
 
 3. Удаление c JOIN
-Измените запрос так, чтобы удалить товары (Goods), имеющие тип деликатесов (delicacies).
+   Измените запрос так, чтобы удалить товары (Goods), имеющие тип деликатесов (delicacies).
 
 ```sql
 DELETE Goods
@@ -505,6 +493,7 @@ FROM Goods
     INNER JOIN GoodTypes ON Goods.type = GoodTypes.good_type_id
 WHERE GoodTypes.good_type_name = 'delicacies';
 ```
+
 # Числовой тип данных в SQL
 
 https://sql-academy.org/ru/guide/work-with-number-data-type
@@ -527,17 +516,16 @@ SELECT HOUR('14:30:45') AS hour_value
 ```
 
 2. Определение возраста
-Выведите имена (поле member_name) и возраст для каждого человека из таблицы FamilyMembers.
-Для вывода возраста используйте псевдоним age.
+   Выведите имена (поле member_name) и возраст для каждого человека из таблицы FamilyMembers.
+   Для вывода возраста используйте псевдоним age.
 
 ```sql
-SELECT 
+SELECT
     member_name,
     TIMESTAMPDIFF(YEAR, birthday, NOW()) AS age
-FROM 
+FROM
     FamilyMembers;
 ```
-
 
 https://sql-academy.org/ru/guide/partitions
 
@@ -552,4 +540,38 @@ SELECT
     MIN(price) OVER(PARTITION BY home_type) AS min_price_by_type
 FROM
     Rooms;
+```
+
+Основные оконные функции
+https://sql-academy.org/ru/guide/types-of-windows-functions
+
+1. Ранг жилья в текущей категории по цене
+
+Из таблицы Rooms вывести id, home_type и price у всех жилых помещений, а также в отдельной колонке room_rank вывести ранг данного жилого помещения в его категории (home_type) по цене, используя для этого функцию DENSE_RANK так, чтобы самое дешёвое жилое помещение имело ранг 1, следующие за ним по цене — 2 и так далее.
+
+```sql
+SELECT id,
+	home_type,
+	price,
+	DENSE_RANK() OVER(PARTITION BY home_type ORDER BY price) AS "room_rank"
+FROM Rooms;
+```
+
+2. Время, прошедшее с предыдущего вылета
+
+Дополните запрос так, чтобы найти разницу во времени между вылетами среди рейсов одной компании.
+В качестве результирующей выборки выведите идентификаторы компаний (в поле company), время вылета их рейсов (в поле time_out) и время (в поле time_diff), прошедшее с предыдущего вылета в формате ЧЧ-MM-СС. Если это был первый рейс компании, то в поле time_diff нужно вывести "00:00:00".
+
+```sql
+SELECT
+    company,
+    time_out,
+    TIMEDIFF(
+        time_out,
+        FIRST_VALUE(time_out) OVER (
+        PARTITION BY company ORDER BY time_out
+        ROWS BETWEEN 1 PRECEDING AND CURRENT ROW
+        )
+    ) AS time_diff
+FROM Trip
 ```
