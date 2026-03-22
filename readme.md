@@ -640,3 +640,57 @@ BEGIN
     END IF;
 END;
 ```
+
+Создание и удаление таблиц
+https://sql-academy.org/ru/guide/create-table
+
+
+1. Создание таблицы Classrooms
+
+Создайте таблицу Classrooms со следующими полями:
+id — обязательное поле типа INTEGER, являющееся первичным ключом с автоинкрементом
+room_number — обязательное уникальное поле типа INTEGER
+floor — обязательное поле типа INTEGER со значением по умолчанию 1
+building — обязательное поле типа VARCHAR(50)
+description — поле типа TEXT
+created_at — поле типа TIMESTAMP со значением по умолчанию, равным текущим дате и времени
+
+```sql
+CREATE TABLE Classrooms (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    room_number INTEGER NOT NULL UNIQUE ,
+    floor INTEGER NOT NULL DEFAULT 1,
+    building VARCHAR(50) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+2. Создание таблицы Homework
+
+Создайте таблицу Homework со следующими полями:
+id — обязательное поле типа INTEGER, являющееся первичным ключом с автоинкрементом
+lesson_id — обязательное поле типа INTEGER
+description — обязательное поле типа TEXT
+due_date — обязательное поле типа DATE
+Для lesson_id добавьте внешний ключ на Lessons(id). При удалении и обновлении связанной записи изменения должны применяться каскадно.
+
+```sql
+CREATE TABLE Homework (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    lesson_id INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    due_date DATE NOT NULL,
+    FOREIGN KEY (lesson_id) REFERENCES Lessons (id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+```
+
+3. Удаление таблицы Timepair
+
+Удалите таблицу Timepair из базы данных.
+
+```sql
+DROP TABLE Timepair;
+```
+
