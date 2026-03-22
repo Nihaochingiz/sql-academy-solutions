@@ -694,3 +694,21 @@ CREATE TABLE Homework (
 DROP TABLE Timepair;
 ```
 
+
+https://sql-academy.org/ru/guide/view
+
+Представления, VIEW
+
+1. Создание представления
+
+На основании таблицы Student создайте представление ViewStudent, содержащие только поля id, first_name и last_name.
+
+```sql
+CREATE VIEW ViewStudent AS
+    SELECT id,
+           first_name,
+           last_name
+FROM Student;
+```
+
+
