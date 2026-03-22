@@ -592,4 +592,20 @@ BEGIN
 END;
 ```
 
+2. Функция подсчета количества резерваций пользователя
 
+Создайте хранимую функцию get_user_reservation_amount, которая принимает параметр input_user_id типа INT и возвращает количество резерваций этого пользователя из таблицы Reservations.
+
+```sql
+CREATE FUNCTION get_user_reservation_amount(input_user_id INT)
+  RETURNS INT
+BEGIN
+  DECLARE result INT;
+  
+  SELECT COUNT(*) INTO result
+  FROM Reservations
+  WHERE user_id = input_user_id;
+  
+  RETURN result;
+END
+```
