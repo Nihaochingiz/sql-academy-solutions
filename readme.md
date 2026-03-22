@@ -575,3 +575,21 @@ SELECT
     ) AS time_diff
 FROM Trip
 ```
+
+Хранимые функции в SQL
+
+https://sql-academy.org/ru/guide/stored-functions
+
+1. Создание функции для вычисления куба числа
+
+Создайте хранимую функцию cube_number, которая принимает один параметр x типа INT и возвращает его куб (x³).
+
+```sql
+CREATE FUNCTION cube_number( x INT)
+RETURNS INT
+BEGIN
+   RETURN X * X * X;
+END;
+```
+
+
