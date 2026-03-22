@@ -609,3 +609,34 @@ BEGIN
   RETURN result;
 END
 ```
+
+
+https://sql-academy.org/ru/guide/operators-if-case-while-in-stored-procedures
+
+Операторы IF, CASE, WHILE в хранимых процедурах
+
+1. Функция определения статуса пользователя
+
+Создайте хранимую функцию get_user_status, которая принимает параметр input_user_id типа INT и возвращает статус пользователя: "VIP" если у него больше 3 резерваций, "Regular" если от 1 до 3 резерваций, "New" если резерваций нет. Используйте оператор IF.
+
+```sql
+CREATE FUNCTION get_user_status(input_user_id INT)
+RETURNS VARCHAR(20)
+DETERMINISTIC
+BEGIN
+    DECLARE reservation_count INT;
+    
+    SELECT COUNT(*)
+    INTO reservation_count
+    FROM Reservations
+    WHERE user_id = input_user_id;
+    
+    IF reservation_count > 3 THEN
+        RETURN 'VIP';
+    ELSEIF reservation_count BETWEEN 1 AND 3 THEN
+        RETURN 'Regular';
+    ELSE
+        RETURN 'New';
+    END IF;
+END;
+```
