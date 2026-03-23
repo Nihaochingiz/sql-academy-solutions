@@ -720,3 +720,16 @@ https://sql-academy.org/ru/guide/indexes
 CREATE INDEX idx_lastname
     ON Student (last_name);
 ```
+
+Ограничения столбцов (Constraints) в SQL
+
+https://sql-academy.org/ru/guide/constraints
+
+1. Ограничение NOT NULL на email
+
+Сделайте столбец email таблицы Users обязательным (NOT NULL).
+
+```sql
+ALTER TABLE Users
+MODIFY email VARCHAR(50) NOT NULL;
+```
