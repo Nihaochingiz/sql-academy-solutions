@@ -733,3 +733,12 @@ https://sql-academy.org/ru/guide/constraints
 ALTER TABLE Users
 MODIFY email VARCHAR(50) NOT NULL;
 ```
+
+2. Значение по умолчанию для суммы бронирования
+
+Установите значение по умолчанию 0 для столбца total таблицы Reservations.
+
+```sql
+ALTER TABLE Reservations
+ALTER COLUMN total SET DEFAULT 0;
+```
