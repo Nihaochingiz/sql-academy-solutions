@@ -601,15 +601,14 @@ CREATE FUNCTION get_user_reservation_amount(input_user_id INT)
   RETURNS INT
 BEGIN
   DECLARE result INT;
-  
+
   SELECT COUNT(*) INTO result
   FROM Reservations
   WHERE user_id = input_user_id;
-  
+
   RETURN result;
 END
 ```
-
 
 https://sql-academy.org/ru/guide/operators-if-case-while-in-stored-procedures
 
@@ -625,12 +624,12 @@ RETURNS VARCHAR(20)
 DETERMINISTIC
 BEGIN
     DECLARE reservation_count INT;
-    
+
     SELECT COUNT(*)
     INTO reservation_count
     FROM Reservations
     WHERE user_id = input_user_id;
-    
+
     IF reservation_count > 3 THEN
         RETURN 'VIP';
     ELSEIF reservation_count BETWEEN 1 AND 3 THEN
@@ -643,7 +642,6 @@ END;
 
 Создание и удаление таблиц
 https://sql-academy.org/ru/guide/create-table
-
 
 1. Создание таблицы Classrooms
 
@@ -694,7 +692,6 @@ CREATE TABLE Homework (
 DROP TABLE Timepair;
 ```
 
-
 https://sql-academy.org/ru/guide/view
 
 Представления, VIEW
@@ -711,4 +708,15 @@ CREATE VIEW ViewStudent AS
 FROM Student;
 ```
 
+Индексы в SQL
 
+https://sql-academy.org/ru/guide/indexes
+
+1. Создание индекса на фамилию
+
+Создайте индекс idx_lastname к столбцу last_name таблицы Student.
+
+```sql
+CREATE INDEX idx_lastname
+    ON Student (last_name);
+```
